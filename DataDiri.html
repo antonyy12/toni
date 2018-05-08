@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<title> Latihan AJAX1 </title>
+<head>
+<script> 
+function loadXML2(){
+	var xmlhttp;
+	if (window.XMLHttpRequest) {
+		xmlhttp = new XMLHttpRequest();
+	}else{
+		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange = function(){
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("isi").innerHTML=xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET","text2.xml",true);
+	xmlhttp.send();
+}
+</script>
+</head>
+
+<body>
+	<div id="isi">
+		<h2>Kalimat Utama Sebelum Diubah</h2>
+	</div>
+		<button type="button" onclick="loadXML2()">Tampilkan Data Diri</button>
+</body>
+</html>
+
